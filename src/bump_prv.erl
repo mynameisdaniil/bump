@@ -15,10 +15,10 @@ init(State) ->
             {module, ?MODULE},            % The module implementation of the task
             {bare, true},                 % The task can be run by the user, always true
             {deps, ?DEPS},                % The list of dependencies
-            {example, "rebar3 bump"}, % How to use the plugin
+            {example, "rebar3 bump patch|minor|major"}, % How to use the plugin
             {opts, []},                   % list of options understood by the plugin
-            {short_desc, "A rebar plugin"},
-            {desc, "A rebar plugin"}
+            {short_desc, "Semantic versioning"},
+            {desc, "npm-like semantic versioning for rebar3"}
     ]),
     {ok, rebar_state:add_provider(State, Provider)}.
 

@@ -1,7 +1,7 @@
 bump
 =====
 
-A rebar plugin
+NPM-like semantic versioning for rebar3
 
 Build
 -----
