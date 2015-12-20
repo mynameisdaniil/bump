@@ -1,6 +1,26 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+bump_prv	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-module(bump_prv).$/;"	m	language:Erlang
 DEPS	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-define(DEPS, [app_discovery]).$/;"	d	language:Erlang
-do	/home/daniil/projects/my/bump/src/bump_prv.erl	/^do(State) ->$/;"	f	language:Erlang
-format_error	/home/daniil/projects/my/bump/src/bump_prv.erl	/^format_error(Reason) ->$/;"	f	language:Erlang
-init	/home/daniil/projects/my/bump/src/bump_prv.erl	/^init(State) ->$/;"	f	language:Erlang
+DEPS	/home/daniil/projects/my/bump/src/major_prv.erl	/^-define(DEPS, [app_discovery]).$/;"	d	language:Erlang
+DEPS	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-define(DEPS, [app_discovery]).$/;"	d	language:Erlang
+DEPS	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(DEPS, [app_discovery]).$/;"	d	language:Erlang
+do	/home/daniil/projects/my/bump/src/bump_prv.erl	/^do(State) ->$/;"	f	language:Erlang	module:bump_prv
+do	/home/daniil/projects/my/bump/src/major_prv.erl	/^do(State) ->$/;"	f	language:Erlang	module:major_prv
+do	/home/daniil/projects/my/bump/src/minor_prv.erl	/^do(State) ->$/;"	f	language:Erlang	module:minor_prv
+do	/home/daniil/projects/my/bump/src/patch_prv.erl	/^do(State) ->$/;"	f	language:Erlang	module:patch_prv
+format_error	/home/daniil/projects/my/bump/src/bump_prv.erl	/^format_error(Reason) ->$/;"	f	language:Erlang	module:bump_prv
+format_error	/home/daniil/projects/my/bump/src/major_prv.erl	/^format_error(Reason) ->$/;"	f	language:Erlang	module:major_prv
+format_error	/home/daniil/projects/my/bump/src/minor_prv.erl	/^format_error(Reason) ->$/;"	f	language:Erlang	module:minor_prv
+format_error	/home/daniil/projects/my/bump/src/patch_prv.erl	/^format_error(Reason) ->$/;"	f	language:Erlang	module:patch_prv
+init	/home/daniil/projects/my/bump/src/bump.erl	/^init(State) ->$/;"	f	language:Erlang
+init	/home/daniil/projects/my/bump/src/bump_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:bump_prv
+init	/home/daniil/projects/my/bump/src/major_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:major_prv
+init	/home/daniil/projects/my/bump/src/minor_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:minor_prv
+init	/home/daniil/projects/my/bump/src/patch_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:patch_prv
+major_prv	/home/daniil/projects/my/bump/src/major_prv.erl	/^-module(major_prv).$/;"	m	language:Erlang
+minor_prv	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-module(minor_prv).$/;"	m	language:Erlang
+patch_prv	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-module(patch_prv).$/;"	m	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-define(PROVIDER, 'bump').$/;"	d	language:Erlang
+PROVIDER	/home/daniil/projects/my/bump/src/major_prv.erl	/^-define(PROVIDER, major).$/;"	d	language:Erlang
+PROVIDER	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-define(PROVIDER, minor).$/;"	d	language:Erlang
+PROVIDER	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PROVIDER, patch).$/;"	d	language:Erlang

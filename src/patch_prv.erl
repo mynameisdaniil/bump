@@ -1,8 +1,8 @@
--module('bump_prv').
+-module(patch_prv).
 
 -export([init/1, do/1, format_error/1]).
 
--define(PROVIDER, 'bump').
+-define(PROVIDER, patch).
 -define(DEPS, [app_discovery]).
 
 %% ===================================================================
@@ -18,7 +18,7 @@ init(State) ->
             {deps, ?DEPS},                % The list of dependencies
             {example, "rebar3 bump patch|minor|major"}, % How to use the plugin
             {opts, []},                   % list of options understood by the plugin
-            {short_desc, "Semantic versioning"},
+            {short_desc, "Bump patch version number (e.g. 0.0.X)"},
             {desc, "npm-like semantic versioning for rebar3"}
     ]),
     {ok, rebar_state:add_provider(State, Provider)}.
