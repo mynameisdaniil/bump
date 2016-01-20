@@ -14,7 +14,8 @@ set_release_version(File, Version) ->
 set_release_version(Version, [Line | Lines], Found, Acc) ->
   case string:str(Line, "bump marker") > 0 of
     true ->
-      NewLine = re:replace(Line, "(\").+(\".*}.*%%.*bump marker$)", io_lib:format("\\1~B.~B.~B\\2", [{Major, Minor, Patch}])),
+      {Major, Minor, Patch} = Version,
+      NewLine = re:replace(Line, "(\").+(\".*}.*%%.*bump marker$)", io_lib:format("\\1~B.~B.~B\\2", [Major, Minor, Patch])),
       set_release_version(Version, Lines, true, [NewLine|Acc]);
     false ->
       set_release_version(Version, Lines, Found, [Line | Acc])
