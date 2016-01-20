@@ -1,31 +1,42 @@
 -module(bump_rebar).
 
--export([set_release_version/2]).
+-export([inc_release_version/2]).
 
-set_release_version(File, Version) ->
+inc_release_version(File, Inc) ->
   {ok, Bin} = file:read_file(File),
   Lines = lists:map(fun binary_to_list/1, binary:split(Bin, <<"\n">>, [global])),
-  case set_release_version(Version, Lines, false, []) of
+  case inc_release_version(Inc, Lines, false, []) of
     {error, E} -> E;
     Contents ->
       file:write_file(File, [strip(Contents), <<"\n">>])
   end.
 
-set_release_version(Version, [Line | Lines], Found, Acc) ->
+inc_release_version(Inc, [Line | Lines], Found, Acc) ->
   case string:str(Line, "bump marker") > 0 of
     true ->
-      {Major, Minor, Patch} = Version,
-      NewLine = re:replace(Line, "(\").+(\".*}.*%%.*bump marker$)", io_lib:format("\\1~B.~B.~B\\2", [Major, Minor, Patch])),
-      set_release_version(Version, Lines, true, [NewLine|Acc]);
+      Version = parse_version(Line),
+      {Major, Minor, Patch} = Inc(Version),
+      Replacement = io_lib:format("\\1v~B.~B.~B\\2", [Major, Minor, Patch]),
+      io:format(Replacement),
+      NewLine = re:replace(Line, "(\").+(\".*}.*%%.*bump marker$)", Replacement),
+      inc_release_version(Inc, Lines, true, [NewLine|Acc]);
     false ->
-      set_release_version(Version, Lines, Found, [Line | Acc])
+      inc_release_version(Inc, Lines, Found, [Line | Acc])
   end;
 
-set_release_version(_Version, [], true, Acc) ->
+inc_release_version(_Inc, [], true, Acc) ->
   [ [Line, <<"\n">>] || Line <- lists:reverse(Acc) ];
 
-set_release_version(_Version, [], false, _Acc) ->
+inc_release_version(_Inc, [], false, _Acc) ->
   {error, marker_missing}.
+
+parse_version(Line) ->
+  io:format("~s\n", [Line]),
+  case re:run(Line, "\"v?(\\d)\\.(\\d)\\.(\\d)\"", [{capture, all_but_first, list}]) of
+    {match, Captured} ->
+      list_to_tuple(lists:map(fun list_to_integer/1, Captured));
+    _ -> {0, 0, 0}
+  end.
 
 strip(<<>>) ->
     <<>>;

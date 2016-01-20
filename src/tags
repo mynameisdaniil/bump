@@ -18,6 +18,10 @@ format_error	/home/daniil/projects/my/bump/src/patch_prv.erl	/^format_error(Reas
 get_data	/home/daniil/projects/my/bump/src/bump_git.erl	/^get_data(Port, Sofar) ->$/;"	f	language:Erlang	module:bump_git
 get_data	/home/daniil/projects/my/bump/src/git.erl	/^get_data(Port, Sofar) ->$/;"	f	language:Erlang	module:git
 git	/home/daniil/projects/my/bump/src/git.erl	/^-module(git).$/;"	m	language:Erlang
+inc_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^inc_release_version(File, Inc) ->$/;"	f	language:Erlang	module:bump_rebar
+inc_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^inc_release_version(Inc, [Line | Lines], Found, Acc) ->$/;"	f	language:Erlang	module:bump_rebar
+inc_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^inc_release_version(_Inc, [], false, _Acc) ->$/;"	f	language:Erlang	module:bump_rebar
+inc_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^inc_release_version(_Inc, [], true, Acc) ->$/;"	f	language:Erlang	module:bump_rebar
 init	/home/daniil/projects/my/bump/src/bump.erl	/^init(State) ->$/;"	f	language:Erlang
 init	/home/daniil/projects/my/bump/src/bump_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:bump_prv
 init	/home/daniil/projects/my/bump/src/major_prv.erl	/^init(State) ->$/;"	f	language:Erlang	module:major_prv
@@ -29,16 +33,13 @@ major_prv	/home/daniil/projects/my/bump/src/major_prv.erl	/^-module(major_prv).$
 minor_prv	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-module(minor_prv).$/;"	m	language:Erlang
 my_exec	/home/daniil/projects/my/bump/src/bump_git.erl	/^my_exec(Command, Dir) ->$/;"	f	language:Erlang	module:bump_git
 my_exec	/home/daniil/projects/my/bump/src/git.erl	/^my_exec(Command, Dir) ->$/;"	f	language:Erlang	module:git
+parse_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^parse_version(Line) ->$/;"	f	language:Erlang	module:bump_rebar
 patch_prv	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-module(patch_prv).$/;"	m	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-define(PROVIDER, 'bump').$/;"	d	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/major_prv.erl	/^-define(PROVIDER, major).$/;"	d	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-define(PROVIDER, minor).$/;"	d	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PROVIDER, patch).$/;"	d	language:Erlang
 PRV_ERROR	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PRV_ERROR(Reason), {error, {?MODULE, Reason}}).$/;"	d	language:Erlang
-set_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^set_release_version(File, Version) ->$/;"	f	language:Erlang	module:bump_rebar
-set_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^set_release_version(Version, [Line | Lines], Found, Acc) ->$/;"	f	language:Erlang	module:bump_rebar
-set_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^set_release_version(_Version, [], false, _Acc) ->$/;"	f	language:Erlang	module:bump_rebar
-set_release_version	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^set_release_version(_Version, [], true, Acc) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(<<>>) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_binary(B) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_list(B) ->$/;"	f	language:Erlang	module:bump_rebar

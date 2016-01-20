@@ -27,13 +27,13 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-  %% io:format("is_clean: ~p\n", [bump_git:is_clean("/home/daniil/projects/my/bump/")]),
-  case bump_git:is_clean("/home/daniil/projects/my/bump/") of
+  {ok, CWD} = file:get_cwd(),
+  case bump_git:is_clean(CWD) of
+    _ ->
+      bump_rebar:inc_release_version(filename:join(CWD, "rebar.config"), fun({Major, Minor, Patch}) -> {Major, Minor, Patch + 1} end),
+      {ok, State};
     false ->
-      ?PRV_ERROR("Repository is not clean. Commit changes before bumping version.");
-    true ->
-      bump_rebar:set_release_version("/home/daniil/projects/my/bump/rebar.config", {0, 0, 5}),
-      {ok, State}
+      ?PRV_ERROR("Repository is not clean. Commit changes before bumping version.")
 end.
 
 -spec format_error(any()) ->  iolist().
