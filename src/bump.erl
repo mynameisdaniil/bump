@@ -12,7 +12,7 @@ init(State) ->
 bump(State, Fun) ->
   {ok, CWD} = file:get_cwd(),
   case bump_git:is_clean(CWD) of
-    _ ->
+    true ->
       {ok, Version} = bump_rebar:inc_release_version(filename:join(CWD, "rebar.config"), Fun),
       ok = bump_git:add("rebar.config", CWD),
       ok = bump_git:commit(Version, CWD),
