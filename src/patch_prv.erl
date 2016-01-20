@@ -32,7 +32,7 @@ do(State) ->
     false ->
       ?PRV_ERROR("Repository is not clean. Commit changes before bumping version.");
     true ->
-      bump_rebar:set_release_version("/home/daniil/projects/my/bump/rebar.config", "0.0.5"),
+      bump_rebar:set_release_version("/home/daniil/projects/my/bump/rebar.config", {0, 0, 5}),
       {ok, State}
 end.
 
