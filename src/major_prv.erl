@@ -1,9 +1,11 @@
 -module(major_prv).
 
+-behaviour(provider).
+
 -export([init/1, do/1, format_error/1]).
 
 -define(PROVIDER, major).
--define(DEPS, [app_discovery]).
+-define(DEPS, []).
 
 %% ===================================================================
 %% Public API
@@ -18,7 +20,7 @@ init(State) ->
             {deps, ?DEPS},                % The list of dependencies
             {example, "rebar3 bump patch|minor|major"}, % How to use the plugin
             {opts, []},                   % list of options understood by the plugin
-            {short_desc, "Bump major version number (e.g. X.0.0)"},
+            {short_desc, "Bump and commit major version number (e.g. X.0.0)"},
             {desc, "npm-like semantic versioning for rebar3"}
     ]),
     {ok, rebar_state:add_provider(State, Provider)}.

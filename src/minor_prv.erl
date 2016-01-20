@@ -1,9 +1,11 @@
 -module(minor_prv).
 
+-behaviour(provider).
+
 -export([init/1, do/1, format_error/1]).
 
 -define(PROVIDER, minor).
--define(DEPS, [app_discovery]).
+-define(DEPS, []).
 
 %% ===================================================================
 %% Public API
@@ -18,7 +20,7 @@ init(State) ->
             {deps, ?DEPS},                % The list of dependencies
             {example, "rebar3 bump patch|minor|major"}, % How to use the plugin
             {opts, []},                   % list of options understood by the plugin
-            {short_desc, "Bump minor version number (e.g. 0.X.0)"},
+            {short_desc, "Bump and commit minor version number (e.g. 0.X.0)"},
             {desc, "Bumps minor number and create apropriate commit"}
     ]),
     {ok, rebar_state:add_provider(State, Provider)}.
