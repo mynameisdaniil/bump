@@ -14,6 +14,7 @@ bump(State, Fun) ->
   case bump_git:is_clean(CWD) of
     _ ->
       {ok, Version} = bump_rebar:inc_release_version(filename:join(CWD, "rebar.config"), Fun),
+      ok = bump_git:add("rebar.config", CWD),
       ok = bump_git:commit(Version, CWD),
       ok = bump_git:tag(Version, CWD),
       {ok, State};
