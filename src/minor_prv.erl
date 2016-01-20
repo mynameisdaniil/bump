@@ -28,7 +28,7 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-    {ok, State}.
+  bump:bump(State, fun({Major, Minor, Patch}) -> {Major, Minor + 1, 0} end).
 
 -spec format_error(any()) ->  iolist().
 format_error(Reason) ->

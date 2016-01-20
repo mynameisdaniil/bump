@@ -1,12 +1,20 @@
 -module(bump_git).
 
--export([is_clean/1]).
+-export([is_clean/1, commit/2, tag/2]).
 
 is_clean(Dir) ->
   case my_exec("git diff --exit-code", Dir) of
     {0, _} -> true;
     _ -> false
   end.
+
+commit(Message, Dir) ->
+  {0, _} = my_exec(io_lib:format("git commit -m ~s", [Message]), Dir),
+  ok.
+
+tag(Tag, Dir) ->
+  {0, _} = my_exec(io_lib:format("git tag ~s", [Tag]), Dir),
+  ok.
 
 my_exec(Command, Dir) ->
     Port = open_port({spawn, Command}, [stream, eof, hide, exit_status, {cd, Dir}]),
