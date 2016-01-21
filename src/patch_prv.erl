@@ -4,7 +4,6 @@
 
 -define(PROVIDER, patch).
 -define(DEPS, []).
--define(PRV_ERROR(Reason), {error, {?MODULE, Reason}}).
 
 %% ===================================================================
 %% Public API
@@ -27,7 +26,7 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-  bump:bump(State, fun({Major, Minor, Patch}) -> {Major, Minor, Patch + 1} end).
+  bump:bump(?MODULE, State, fun({Major, Minor, Patch}) -> {Major, Minor, Patch + 1} end).
 
 -spec format_error(any()) ->  iolist().
 format_error(Reason) ->

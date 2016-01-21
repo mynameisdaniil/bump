@@ -1,6 +1,6 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
 add	/home/daniil/projects/my/bump/src/bump_git.erl	/^add(File, Dir) ->$/;"	f	language:Erlang	module:bump_git
-bump	/home/daniil/projects/my/bump/src/bump.erl	/^bump(State, Fun) ->$/;"	f	language:Erlang
+bump	/home/daniil/projects/my/bump/src/bump.erl	/^bump(Module, State, Fun) ->$/;"	f	language:Erlang
 bump_git	/home/daniil/projects/my/bump/src/bump_git.erl	/^-module(bump_git).$/;"	m	language:Erlang
 bump_prv	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-module(bump_prv).$/;"	m	language:Erlang
 bump_rebar	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^-module(bump_rebar).$/;"	m	language:Erlang
@@ -41,7 +41,6 @@ PROVIDER	/home/daniil/projects/my/bump/src/bump_prv.erl	/^-define(PROVIDER, 'bum
 PROVIDER	/home/daniil/projects/my/bump/src/major_prv.erl	/^-define(PROVIDER, major).$/;"	d	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/minor_prv.erl	/^-define(PROVIDER, minor).$/;"	d	language:Erlang
 PROVIDER	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PROVIDER, patch).$/;"	d	language:Erlang
-PRV_ERROR	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PRV_ERROR(Reason), {error, {?MODULE, Reason}}).$/;"	d	language:Erlang
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(<<>>) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_binary(B) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_list(B) ->$/;"	f	language:Erlang	module:bump_rebar
