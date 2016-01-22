@@ -7,9 +7,9 @@ inc_release_version(File, Inc) ->
   Lines = lists:map(fun binary_to_list/1, binary:split(Bin, <<"\n">>, [global])),
   case inc_release_version(Inc, Lines, false, [], undefined) of
     {error, E} -> E;
-    {ok, Contents, {Major, Minor, Patch}} ->
+    {ok, Contents, Version} ->
       ok = file:write_file(File, [strip(Contents), <<"\n">>]),
-      {ok, io_lib:format("v~B.~B.~B\n", [Major, Minor, Patch])}
+      {ok, Version}
   end.
 
 inc_release_version(Inc, [Line | Lines], Found, Acc, Version) ->
