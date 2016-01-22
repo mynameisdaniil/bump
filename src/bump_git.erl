@@ -1,6 +1,6 @@
 -module(bump_git).
 
--export([is_clean/1, add/2, commit/2, tag/2]).
+-export([is_clean/1, add/2, commit/2, tag/3]).
 
 is_clean(Dir) ->
   case my_exec("git diff --exit-code", Dir) of
@@ -16,8 +16,8 @@ commit(Message, Dir) ->
   {0, _} = my_exec(io_lib:format("git commit -m ~s", [Message]), Dir),
   ok.
 
-tag(Tag, Dir) ->
-  {0, _} = my_exec(io_lib:format("git tag ~s", [Tag]), Dir),
+tag(Message, Tag, Dir) ->
+  {0, _} = my_exec(io_lib:format("git tag -a -m ~s ~s", [Message, Tag]), Dir),
   ok.
 
 my_exec(Command, Dir) ->

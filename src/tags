@@ -44,7 +44,7 @@ PROVIDER	/home/daniil/projects/my/bump/src/patch_prv.erl	/^-define(PROVIDER, pat
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(<<>>) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_binary(B) ->$/;"	f	language:Erlang	module:bump_rebar
 strip	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^strip(B) when is_list(B) ->$/;"	f	language:Erlang	module:bump_rebar
-tag	/home/daniil/projects/my/bump/src/bump_git.erl	/^tag(Tag, Dir) ->$/;"	f	language:Erlang	module:bump_git
+tag	/home/daniil/projects/my/bump/src/bump_git.erl	/^tag(Message, Tag, Dir) ->$/;"	f	language:Erlang	module:bump_git
 whitespace	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^whitespace($ )  -> true;$/;"	f	language:Erlang	module:bump_rebar
 whitespace	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^whitespace($\\n) -> true;$/;"	f	language:Erlang	module:bump_rebar
 whitespace	/home/daniil/projects/my/bump/src/bump_rebar.erl	/^whitespace($\\r) -> true;$/;"	f	language:Erlang	module:bump_rebar

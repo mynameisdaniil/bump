@@ -15,8 +15,10 @@ bump(Module, State, Fun) ->
     true ->
       {ok, {Major, Minor, Patch}} = bump_rebar:inc_release_version(filename:join(CWD, "rebar.config"), Fun),
       ok = bump_git:add("rebar.config", CWD),
-      ok = bump_git:commit(io_lib:format("~B.~B.~B", [Major, Minor, Patch]), CWD),
-      ok = bump_git:tag(io_lib:format("v~B.~B.~B", [Major, Minor, Patch]), CWD),
+      Message = io_lib:format("~B.~B.~B", [Major, Minor, Patch]),
+      Tag = io_lib:format("v~B.~B.~B", [Major, Minor, Patch]),
+      ok = bump_git:commit(Message, CWD),
+      ok = bump_git:tag(Message, Tag, CWD),
       {ok, State};
     false ->
       {error, {Module, "Repository is not clean. Commit changes before bumping version."}}
