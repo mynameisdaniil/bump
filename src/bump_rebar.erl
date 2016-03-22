@@ -32,7 +32,7 @@ inc_release_version(_Inc, [], false, _Acc, _Version) ->
   {error, marker_missing}.
 
 parse_version(Line) ->
-  case re:run(Line, "\"v?(\\d)\\.(\\d)\\.(\\d)\"", [{capture, all_but_first, list}]) of
+  case re:run(Line, "\"v?(\\d+)\\.(\\d+)\\.(\\d+)\"", [{capture, all_but_first, list}]) of
     {match, Captured} ->
       list_to_tuple(lists:map(fun list_to_integer/1, Captured));
     _ -> {0, 0, 0}
